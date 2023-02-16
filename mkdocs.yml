@@ -1,0 +1,4 @@
+site_name: Roma
+nav:
+    - Home: index.md
+    - Case Study: case.md
