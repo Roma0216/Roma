@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Roma</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Roma</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="case/" class="nav-link">Case Study</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="case/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#roma-gui-and-vui-interaction-conflicts-on-mobile-apps" class="nav-link">Roma: GUI and VUI Interaction Conflicts on Mobile Apps</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#files-tree" class="nav-link">Files Tree</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#requirements" class="nav-link">Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#how-to-run-roma" class="nav-link">How to run Roma</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#result" class="nav-link">Result</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#case-study" class="nav-link">Case Study</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#download" class="nav-link">Download</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="roma-gui-and-vui-interaction-conflicts-on-mobile-apps">Roma: GUI and VUI Interaction Conflicts on Mobile Apps</h1>
+<p>Roma (GV-race detector on mobile apps) is a framework to detect the GV-race on android apps automatically. Roma extracts the GUI and VUI related call graph through static program analysis, and generates a GV interaction graph using our pre-defined highly abstract primitives to represent the GUI and VUI behavior of the app. It introduces happen-before constraints to formally specify the freeness of GV-race with respect to the GV interaction graph, so that the property can be reduced to constraint solving with off-the-shelf SMT solvers.</p>
+<h2 id="files-tree">Files Tree</h2>
+<pre><code class="language-text">├── README.md
+├── src
+│   ├── Main.java
+│   ├── callGraphAnalyze
+│   │   └── ...
+│   ├── modelConstruct
+│   │   └── ...
+│   └── Solver
+│       └── ...
+├── config
+│   ├── AndroidCallbacks.txt
+│   └── SourcesAndSinks.txt
+├── libs
+│   └── dependencies for Roma
+└── VUIConflict.jar
+</code></pre>
+<ul>
+<li>src: contains the source code of Roma</li>
+<li>libs: contains the dependencies of Roma</li>
+<li>config: configuration files required by FlowDroid. Here, <code>SourcesAndSinks.txt</code> define the functions of GUI &amp; VUI sinks mentioned in the paper.</li>
+<li>VUIConflict.jar: the executable jar package of Roma</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ol>
+<li>Java 8</li>
+<li><a href="https://github.com/z3prover/z3">Microsoft z3</a></li>
+</ol>
+<h2 id="how-to-run-roma">How to run Roma</h2>
+<pre><code class="language-shell">java -jar VUIConflict.jar -a &lt;path to the Apk file&gt; -p &lt;path to the Android platform directory&gt; -c config/AndroidCallbacks.txt -s config/SourcesAndSinks.txt -o &lt;path to the output directory&gt;
+</code></pre>
+<p>for example:</p>
+<pre><code class="language-shell">java -jar VUIConflict.jar -a /home/xxx/Documents/dataset/com.voicenotebook.voicenotebook.apk -p /home/xxx/Android/Sdk/platforms -c config/AndroidCallbacks.txt -s config/SourcesAndSinks.txt -o /home/xxx/Documents/output/
+</code></pre>
+<h2 id="result">Result</h2>
+<ul>
+<li>tested.txt: file names of apps that successfully start to build the entire call graph</li>
+<li>time.txt: file names and testing time (in seconds)</li>
+<li>apksWithoutRace(step1).txt: file names of apps without GV-cowrite</li>
+<li>apksWithoutRace(step2).txt: file names of apps without GV-race</li>
+<li>apksWithRace(step1).txt: file names of apps with GV-cowrite</li>
+<li>apksWithRace(step2).txt: file names of apps with GV-race</li>
+</ul>
+<h2 id="case-study">Case Study</h2>
+<p>See the detailed information <a href="case/">here</a>.</p>
+<h2 id="download">Download</h2>
+<ul>
+<li><a href="tool/Roma.zip">Roma</a> See the Roma directory for running Roma.</li>
+<li><a href="dataset/dataset_810.txt">Dataset</a> The 810 apks' app ids are listed here.</li>
+<li><a href="output/output.zip">Outputs</a> The outputs of Roma on 810 apks are saved in output directory.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.4.2
+Build Date UTC : 2023-02-16 08:23:09.140656+00:00
+-->
