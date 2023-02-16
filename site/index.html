@@ -75,7 +75,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#roma-gui-and-vui-interaction-conflicts-on-mobile-apps" class="nav-link">Roma: GUI and VUI Interaction Conflicts on Mobile Apps</a>
+            <li class="nav-item" data-level="1"><a href="#roma-gv-race-detector-on-mobile-apps" class="nav-link">Roma: GV-race detector on mobile apps</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#files-tree" class="nav-link">Files Tree</a>
               <ul class="nav flex-column">
@@ -108,8 +108,10 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="roma-gui-and-vui-interaction-conflicts-on-mobile-apps">Roma: GUI and VUI Interaction Conflicts on Mobile Apps</h1>
-<p>Roma (GV-race detector on mobile apps) is a framework to detect the GV-race on android apps automatically. Roma extracts the GUI and VUI related call graph through static program analysis, and generates a GV interaction graph using our pre-defined highly abstract primitives to represent the GUI and VUI behavior of the app. It introduces happen-before constraints to formally specify the freeness of GV-race with respect to the GV interaction graph, so that the property can be reduced to constraint solving with off-the-shelf SMT solvers.</p>
+<h1 id="roma-gv-race-detector-on-mobile-apps">Roma: GV-race detector on mobile apps</h1>
+<p>Roma is a framework to automatically detect the GV-race on android apps. 
+Roma extracts the GUI and VUI related call graph through static program analysis, and generates a GV interaction graph using our pre-defined highly abstract primitives to represent the GUI and VUI behavior of the app.
+It introduces happen-before constraints to formally specify the freeness of GV-race with respect to the GV interaction graph, so that the property can be reduced to constraint solving with off-the-shelf SMT solvers.</p>
 <h2 id="files-tree">Files Tree</h2>
 <pre><code class="language-text">├── README.md
 ├── src
@@ -241,5 +243,5 @@
 
 <!--
 MkDocs version : 1.4.2
-Build Date UTC : 2023-02-16 08:44:25.340915+00:00
+Build Date UTC : 2023-02-16 08:55:24.922582+00:00
 -->

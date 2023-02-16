@@ -31,7 +31,8 @@ It introduces happen-before constraints to formally specify the freeness of GV-r
 ## Requirements
 
 1. Java 8
-2. [Microsoft z3](https://github.com/z3prover/z3)
+2. Android SDKs
+3. [Microsoft z3](https://github.com/z3prover/z3)
 
 ## How to run Roma
 ```shell
