@@ -1,5 +1,7 @@
-# Roma: GUI and VUI Interaction Conflicts on Mobile Apps
-Roma (GV-race detector on mobile apps) is a framework to detect the GV-race on android apps automatically. Roma extracts the GUI and VUI related call graph through static program analysis, and generates a GV interaction graph using our pre-defined highly abstract primitives to represent the GUI and VUI behavior of the app. It introduces happen-before constraints to formally specify the freeness of GV-race with respect to the GV interaction graph, so that the property can be reduced to constraint solving with off-the-shelf SMT solvers.
+# Roma: GV-race detector on mobile apps
+Roma is a framework to automatically detect the GV-race on android apps. 
+Roma extracts the GUI and VUI related call graph through static program analysis, and generates a GV interaction graph using our pre-defined highly abstract primitives to represent the GUI and VUI behavior of the app.
+It introduces happen-before constraints to formally specify the freeness of GV-race with respect to the GV interaction graph, so that the property can be reduced to constraint solving with off-the-shelf SMT solvers.
 
 ## Files Tree
 
