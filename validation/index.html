@@ -4,23 +4,23 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Roma</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Validation - Roma</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">Roma</a>
+                <a class="navbar-brand" href="..">Roma</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -30,14 +30,14 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../case/" class="nav-link">Case Study</a>
+                            </li>
                             <li class="navitem active">
-                                <a href="." class="nav-link">Home</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="case/" class="nav-link">Case Study</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="validation/" class="nav-link">Validation</a>
+                                <a href="./" class="nav-link">Validation</a>
                             </li>
                         </ul>
 
@@ -48,12 +48,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
+                                <a rel="prev" href="../case/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="case/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -75,29 +75,9 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#roma-gv-race-detector-on-mobile-apps" class="nav-link">Roma: GV-race detector on mobile apps</a>
+            <li class="nav-item" data-level="1"><a href="#validation" class="nav-link">Validation</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#files-tree" class="nav-link">Files Tree</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#requirements" class="nav-link">Requirements</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#how-to-run-roma" class="nav-link">How to run Roma</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#result" class="nav-link">Result</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#case-study" class="nav-link">Case Study</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#download" class="nav-link">Download</a>
+            <li class="nav-item" data-level="2"><a href="#case-1" class="nav-link">Case 1</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -108,62 +88,19 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="roma-gv-race-detector-on-mobile-apps">Roma: GV-race detector on mobile apps</h1>
-<p>Roma is a framework to automatically detect the GV-race on android apps. 
-Roma extracts the GUI and VUI related call graph through static program analysis, and generates a GV interaction graph using our pre-defined highly abstract primitives to represent the GUI and VUI behavior of the app.
-It introduces happen-before constraints to formally specify the freeness of GV-race with respect to the GV interaction graph, so that the property can be reduced to constraint solving with off-the-shelf SMT solvers.</p>
-<h2 id="files-tree">Files Tree</h2>
-<pre><code class="language-text">├── README.md
-├── src
-│   ├── Main.java
-│   ├── callGraphAnalyze
-│   │   └── ...
-│   ├── modelConstruct
-│   │   └── ...
-│   └── Solver
-│       └── ...
-├── config
-│   ├── AndroidCallbacks.txt
-│   └── SourcesAndSinks.txt
-├── libs
-│   └── dependencies for Roma
-└── VUIConflict.jar
-</code></pre>
-<ul>
-<li>src: contains the source code of Roma</li>
-<li>libs: contains the dependencies of Roma</li>
-<li>config: configuration files required by FlowDroid. Here, <code>SourcesAndSinks.txt</code> define the functions of GUI &amp; VUI sinks mentioned in the paper.</li>
-<li>VUIConflict.jar: the executable jar package of Roma</li>
-</ul>
-<h2 id="requirements">Requirements</h2>
-<ol>
-<li>Java 8</li>
-<li>Android SDKs</li>
-<li><a href="https://github.com/z3prover/z3">Microsoft z3</a></li>
-</ol>
-<h2 id="how-to-run-roma">How to run Roma</h2>
-<pre><code class="language-shell">java -jar VUIConflict.jar -a &lt;path to the Apk file&gt; -p &lt;path to the Android platform directory&gt; -c config/AndroidCallbacks.txt -s config/SourcesAndSinks.txt -o &lt;path to the output directory&gt;
-</code></pre>
-<p>for example:</p>
-<pre><code class="language-shell">java -jar VUIConflict.jar -a /home/xxx/Documents/dataset/com.voicenotebook.voicenotebook.apk -p /home/xxx/Android/Sdk/platforms -c config/AndroidCallbacks.txt -s config/SourcesAndSinks.txt -o /home/xxx/Documents/output/
-</code></pre>
-<h2 id="result">Result</h2>
-<ul>
-<li>tested.txt: file names of apps that successfully start to build the entire call graph</li>
-<li>time.txt: file names and testing time (in seconds)</li>
-<li>apksWithoutRace(step1).txt: file names of apps without GV-cowrite</li>
-<li>apksWithoutRace(step2).txt: file names of apps without GV-race</li>
-<li>apksWithRace(step1).txt: file names of apps with GV-cowrite</li>
-<li>apksWithRace(step2).txt: file names of apps with GV-race</li>
-</ul>
-<h2 id="case-study">Case Study</h2>
-<p>See the detailed information <a href="case/">here</a>.</p>
-<h2 id="download">Download</h2>
-<ul>
-<li><a href="tool/Roma.zip">Roma</a> See the Roma directory for running Roma.</li>
-<li><a href="dataset/dataset.zip">Dataset</a> The 810 apks' app ids are listed here. The mutated third-party apps are also provided.</li>
-<li><a href="output/output.zip">Outputs</a> The outputs of Roma on 810 apks are saved in output directory.</li>
-</ul></div>
+<h1 id="validation">Validation</h1>
+<p>We put two videos recorded during the validation to show how our validation method works.</p>
+<h2 id="case-1">Case 1</h2>
+<p>This example shows an app with the VUI implemented by the variant version of Google VUI SDK.
+In this example, the script clicks the microphone button to invoke the VUI and then immediately enters "G" to the text box.
+We can see that the text box shows "G", then the VUI-related dialog is opened.
+A one or two seconds after we speak to the VUI, the VUI results returned.
+The VUI is invoked before GUI, but the responses return after that of GUI.</p>
+<video id="video" controls="" preload="none" poster="poster">
+      <source id="mp4" src="case1.mp4" type="video/mp4">
+</videos>
+
+## Case 2</div>
             </div>
         </div>
 
@@ -171,14 +108,14 @@ It introduces happen-before constraints to formally specify the freeness of GV-r
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/jquery-3.6.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -243,8 +180,3 @@ It introduces happen-before constraints to formally specify the freeness of GV-r
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.5.3
-Build Date UTC : 2023-12-09 12:22:11.183508+00:00
--->
