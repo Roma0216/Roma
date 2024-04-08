@@ -85,10 +85,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#case-3" class="nav-link">Case 3</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -105,41 +101,29 @@ Then we say "hello word" to the app.
 After that, as the third figure shows, we click the "," button.
 Immediately, the "," text shows on the text box.
 Then the ASR process returns and "hello word" is appended to the text box as the fourth figure shows.
-Finally, the text box shows ",hello word" instead of "hello word,"</p>
-<p><center class="half">
+Finally, the text box shows ",hello word" instead of "hello word,".
+<center class="half">
     <img src="com.voicenotebook.voicenotebook.apk/page0.png" width = 175 text = "page0"/>
     <img src="com.voicenotebook.voicenotebook.apk/page1.png" width = 175 />
     <img src="com.voicenotebook.voicenotebook.apk/page2.png" width = 175 />
     <img src="com.voicenotebook.voicenotebook.apk/page3.png" width = 175 />
 </center></p>
+<p>This app serves as a notebook that can take both GUI and VUI notes, but the GV-race makes the notes incorrect.</p>
 <h2 id="case-2">Case 2</h2>
-<p>​The below four figures show the interafaces of the "com.kuarkdigital.android" app.
-If we click the orange microphone button on the top left in the first figure, the VUI starts.
-In the second figure, we say "Hello" to the app, place the cursor at the beginning of the text box, and tap "f" three times on the keyboard.
-The "fff" text shows immediately on the text box as the third figure shows.
-In the end, the ASR results returns and "Hello." is displayed on the text box.</p>
+<p>​The below four figures show the interafaces of the "an.BurmeseTranslate" app.
+If we click the microphone button on the top right in the first figure, the VUI starts.
+Then, we say "hello" to the app, place the cursor at the beginning of the text box, and tap "g" on the keyboard.
+The "g" text shows immediately on the text box as the second figure shows.
+In the third figure, a dialog starts to process the VUI input.
+In the end, the ASR results returns and "hello" is displayed on the text box.</p>
 <p><center class="half">
-    <img src="com.kuarkdigital.android.apk/page0.png" width = 175 text = "page0"/>
-    <img src="com.kuarkdigital.android.apk/page1.png" width = 175 />
-    <img src="com.kuarkdigital.android.apk/page2.png" width = 175 />
-    <img src="com.kuarkdigital.android.apk/page3.png" width = 175 />
+    <img src="an.BurmeseTranslate.apk/page0.png" width = 175 text = "page0"/>
+    <img src="an.BurmeseTranslate.apk/page1.png" width = 175 />
+    <img src="an.BurmeseTranslate.apk/page2.png" width = 175 />
+    <img src="an.BurmeseTranslate.apk/page3.png" width = 175 />
 </center></p>
-<p>The conflicting GUI action "enter the text to the text box" does not have a corresponding function like "onClick" to the "click a button" action.
-GUI actions on widgets like "EditText" are implicit, but should be taken into consideration.</p>
-<h2 id="case-3">Case 3</h2>
-<p>In the last case, we introduce an app that GV co-write, but successfully avoid the GV-race.
-The first figure shows the interface of the "com.gawk.voicenotes" app.
-If we click the microphone button on the left, the VUI starts.
-Then a dialog fragment displayed at the bottom of this page.
-We say "Hello how are you" to the VUI.
-During the ASR process, the conflicting GUI actions are all disabled.
-Besides, if we close the dialog fragment manually, the conflicting GUI actions are enabled but the VUI is cancelled immediately.
-Finally, the ASR results return as the third figure shows.</p>
-<p><center class="half">
-    <img src="com.gawk.voicenotes.apk/page0.png" width = 175 text = "page0"/>
-    <img src="com.gawk.voicenotes.apk/page1.png" width = 175 />
-    <img src="com.gawk.voicenotes.apk/page2.png" width = 175 />
-</center></p></div>
+<p>This app is a translation app.
+The incorrect inputs to the app can lead to wrong translation results.</p></div>
             </div>
         </div>
 
