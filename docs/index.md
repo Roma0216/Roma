@@ -46,11 +46,7 @@ java -jar VUIConflict.jar -a /home/xxx/Documents/dataset/com.voicenotebook.voice
 ```
 
 ## Result
-* tested.txt: file names of apps that successfully start to build the entire call graph
-* time.txt: file names and testing time (in seconds)
-* apksWithoutRace(step1).txt: file names of apps without GV-cowrite
-* apksWithoutRace(step2).txt: file names of apps without GV-race
-* apksWithRace(step1).txt: file names of apps with GV-cowrite
+* apksWithRace(step1).txt: file names of apps with GV co-access
 * apksWithRace(step2).txt: file names of apps with GV-race
 
 
@@ -60,5 +56,5 @@ See the detailed information [here](case.md).
 
 ## Download
 * [Roma](tool/Roma.zip) See the Roma directory for running Roma.
-* [Dataset](dataset/dataset.zip) The 810 apks' app ids are listed here. The mutated third-party apps are also provided.
-* [Outputs](output/output.zip) The outputs of Roma on 810 apks are saved in output directory.
+* [Dataset](dataset/dataset.zip) The 215 apks' app ids are listed here. The mutated third-party apps are also provided.
+* [Validation] Some of the validation videos can be found [here](validation/video1.zip) and [here](validation/video2.zip).
