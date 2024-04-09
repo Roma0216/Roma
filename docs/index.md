@@ -60,4 +60,4 @@ See the detailed information [here](case.md).
 * [Roma](tool/Roma.zip) See the Roma directory for running Roma.
 * [Dataset](dataset/dataset.zip) The 215 apks' app ids are listed here. The mutated third-party apps are also provided.
 * [Output](output/output.zip) Roma's analysis results of 215 apps are saved here.
-* [Validation] Some of the validation videos can be found [here](validation/video1.zip) and [here](validation/video2.zip).
+* Validation Some of the validation videos can be found [here](validation/video1.zip) and [here](validation/video2.zip).
